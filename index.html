@@ -9,13 +9,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Lora:wght@400;500&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <style>
-        /* 
-           DESIGN PHILOSOPHY:
-           - Theme: Historical & "Analog" warm palette (Cream, Sepia, Charcoal).
-           - Purpose: Educational presentation on the history of household technology.
-           - Layouts: Adhering to the strictly defined templates for management consulting quality.
-        */
-
         :root {
             --primary-bg: #FDFCF0;
             --secondary-bg: #F4F1E1;
@@ -25,11 +18,7 @@
             --gold-accent: #D97706;
         }
 
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
 
         body {
             background-color: #E5E7EB;
@@ -53,7 +42,6 @@
             border-radius: 4px;
         }
 
-        /* Abstract Shape Background Decor */
         .slide-container::before {
             content: '';
             position: absolute;
@@ -65,32 +53,9 @@
             z-index: 0;
         }
 
-        .slide-container::after {
-            content: '';
-            position: absolute;
-            bottom: 20px;
-            left: 60px;
-            width: 100px;
-            height: 2px;
-            background-color: var(--accent-color);
-            opacity: 0.3;
-        }
+        h1, h2, h3 { font-family: 'Playfair Display', serif; color: var(--text-dark); z-index: 1; }
+        p, li { font-family: 'Lora', serif; color: var(--text-muted); font-size: 24px; line-height: 1.6; z-index: 1; }
 
-        h1, h2, h3 {
-            font-family: 'Playfair Display', serif;
-            color: var(--text-dark);
-            z-index: 1;
-        }
-
-        p, li {
-            font-family: 'Lora', serif;
-            color: var(--text-muted);
-            font-size: 24px;
-            line-height: 1.6;
-            z-index: 1;
-        }
-
-        /* Header Layout Consistency */
         .slide-title {
             font-size: 48px;
             margin-bottom: 40px;
@@ -98,47 +63,14 @@
             border-left: 6px solid var(--gold-accent);
             padding-left: 20px;
             text-transform: capitalize;
-            max-width: 1000px;
         }
 
-        .content-area {
-            flex-grow: 1;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            width: 100%;
-        }
+        .content-area { flex-grow: 1; display: flex; flex-direction: column; justify-content: center; width: 100%; }
 
-        /* Layout: Title_Slide */
-        .title-layout {
-            text-align: center;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            height: 100%;
-        }
+        .title-layout { text-align: center; display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100%; }
+        .title-layout h1 { font-size: 84px; margin-bottom: 20px; color: var(--accent-color); }
 
-        .title-layout h1 {
-            font-size: 84px;
-            margin-bottom: 20px;
-            color: var(--accent-color);
-        }
-
-        .title-layout .subtitle {
-            font-size: 32px;
-            font-style: italic;
-            max-width: 800px;
-        }
-
-        /* Layout: Image_Right_Text_Left */
-        .two-column {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 60px;
-            align-items: center;
-            width: 100%;
-        }
+        .two-column { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; width: 100%; }
 
         .image-wrapper {
             border-radius: 8px;
@@ -149,23 +81,10 @@
             padding: 10px;
         }
 
-        .image-wrapper img {
-            width: 100%;
-            height: 100%;
-            object-fit: contain;
-        }
+        .image-wrapper img { width: 100%; height: 100%; object-fit: contain; }
 
-        /* Bullet Styles */
-        .bullet-list ul {
-            list-style: none;
-        }
-
-        .bullet-list li {
-            position: relative;
-            padding-left: 45px;
-            margin-bottom: 25px;
-        }
-
+        .bullet-list ul { list-style: none; }
+        .bullet-list li { position: relative; padding-left: 45px; margin-bottom: 25px; }
         .bullet-list li::before {
             content: '\f105';
             font-family: 'Font Awesome 6 Free';
@@ -176,79 +95,15 @@
             font-size: 28px;
         }
 
-        /* Layout: Bleed_Image_Right */
-        .bleed-image-layout {
-            display: grid;
-            grid-template-columns: repeat(2, minmax(0, 1fr));
-            padding: 0;
-            align-items: start;
-        }
+        .bleed-image-layout { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); padding: 0; }
+        .bleed-content { padding: 80px 60px; display: flex; flex-direction: column; justify-content: center; height: 100%; }
+        .bleed-image-side { height: 720px; width: 100%; object-fit: cover; }
 
-        .bleed-content {
-            padding: 80px 60px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            height: 100%;
-        }
+        .tiled-content { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; width: 100%; }
+        .tile { background-color: var(--secondary-bg); padding: 40px; border-radius: 12px; text-align: center; }
 
-        .bleed-image-side {
-            height: 720px;
-            width: 100%;
-            object-fit: cover;
-        }
-
-        /* Layout: Tiled_Text_With_Icons */
-        .tiled-content {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 30px;
-            width: 100%;
-        }
-
-        .tile {
-            background-color: var(--secondary-bg);
-            padding: 40px;
-            border-radius: 12px;
-            text-align: center;
-            border: 1px solid rgba(0,0,0,0.05);
-        }
-
-        .tile .icon {
-            font-size: 50px;
-            color: var(--accent-color);
-            margin-bottom: 20px;
-        }
-
-        .tile h3 {
-            font-size: 28px;
-            margin-bottom: 15px;
-        }
-
-        /* Footer Credits */
-        .slide-footer {
-            position: absolute;
-            bottom: 30px;
-            right: 60px;
-            font-family: 'Montserrat', sans-serif;
-            font-size: 14px;
-            color: var(--text-muted);
-            letter-spacing: 1px;
-            text-transform: uppercase;
-        }
-
-        .speaker-tag {
-            background: var(--gold-accent);
-            color: white;
-            padding: 4px 12px;
-            border-radius: 20px;
-            font-size: 16px;
-            font-weight: 600;
-            margin-bottom: 10px;
-            display: inline-block;
-            font-family: 'Montserrat', sans-serif;
-        }
-
+        .slide-footer { position: absolute; bottom: 30px; right: 60px; font-family: 'Montserrat', sans-serif; font-size: 14px; color: var(--text-muted); }
+        .speaker-tag { background: var(--gold-accent); color: white; padding: 4px 12px; border-radius: 20px; font-size: 16px; font-weight: 600; margin-bottom: 10px; display: inline-block; }
     </style>
 </head>
 <body>
@@ -259,7 +114,7 @@
             <h1>Ütünün Evrimi</h1>
             <p class="subtitle">M.S. 1. Yüzyıldan Modern Buhar Teknolojisine Sıcak Bir Yolculuk</p>
             <div style="margin-top: 40px; text-align: center; max-width: 850px;">
-                <p style="font-size: 22px; line-height: 1.4;">Merhaba arkadaşlar! Ben Alisher. Alim ve Abılay ile hazırladığımız sunuma hoş geldiniz. Biliyor muydunuz? İlk ütüleri M.S. 1. yüzyılda Çinliler, içine sıcak kömür doldurulmuş metal tavalarla yapmıştı.</p>
+                <p style="font-size: 22px; line-height: 1.4;">Merhaba arkadaşlar! Ben Alisher. Alim ve Abılay ile hazırladığımız sunuma hoş geldiniz. İlk ütüleri M.S. 1. yüzyılda Çinliler, içine sıcak kömür doldurulmuş metal tavalarla yapmıştı.</p>
             </div>
         </div>
         <div class="slide-footer">Alisher, Alim & Abılay | 2026</div>
@@ -278,7 +133,7 @@
                     </ul>
                 </div>
                 <div class="image-wrapper">
-                    <img src="http://googleusercontent.com/image_collection/image_retrieval/2362368231474463224" alt="Antique charcoal iron artifact">
+                    <img src="IMG_1613.webp" alt="Antique charcoal iron artifact">
                 </div>
             </div>
         </div>
@@ -290,7 +145,7 @@
         <div class="content-area">
             <div class="two-column">
                 <div class="image-wrapper">
-                    <img src="http://googleusercontent.com/image_collection/image_retrieval/17087578202645314779" alt="Old cast iron sad iron">
+                    <img src="IMG_1612.jpeg" alt="Old cast iron iron">
                 </div>
                 <div class="bullet-list">
                     <span class="speaker-tag">S. Abılay</span>
@@ -309,15 +164,15 @@
         <div class="bleed-content">
             <span class="speaker-tag">J. Alisher</span>
             <h2 class="slide-title" style="margin-bottom: 20px; border: none; padding: 0;">1882: Elektrikli Devrim</h2>
-            <p style="margin-bottom: 20px;">1882 yılında Henry Seely White, tarihteki ilk elektrikli ütüyü icat etti. "Elektrikli Flatiron" olarak patentini aldığı bu cihaz, ev işlerinde yeni bir çağ başlattı.</p>
+            <p style="margin-bottom: 20px;">1882 yılında Henry Seely White, ilk elektrikli ütüyü icat etti. "Elektrikli Flatiron" olarak patentini aldığı bu cihaz, ev işlerinde yeni bir çağ başlattı.</p>
             <div class="bullet-list">
                 <p style="font-size: 20px; background: rgba(217, 119, 6, 0.1); padding: 15px; border-radius: 8px;">
-                    <strong>İlginç Bilgi:</strong> Bu ilk ütü tam 7 kilo ağırlığındaydı! O zamanlar ütü ne kadar ağırsa kırışıklıkları o kadar iyi giderdiğine inanılıyordu. Ayrıca ısınması çok uzun sürüyordu.
+                    <strong>İlginç Bilgi:</strong> Bu ilk ütü tam 7 kilo ağırlığındaydı! O zamanlar ütü ne kadar ağırsa kırışıklıkları o kadar iyi giderdiğine inanılıyordu.
                 </p>
             </div>
         </div>
         <div>
-            <img class="bleed-image-side" src="http://googleusercontent.com/image_collection/image_retrieval/11026700722699608983" alt="1882 Henry Seely White Electric Iron model">
+            <img class="bleed-image-side" src="IMG_1614.jpeg" alt="1882 Henry Seely White model">
         </div>
         <div class="slide-footer" style="color: white; right: 20px;">04 — Elektrikli Ütünün İcadı</div>
     </div>
@@ -327,21 +182,18 @@
         <div class="content-area">
             <div class="tiled-content">
                 <div class="tile">
-                    <div class="icon"><i class="fa-solid fa-cloud"></i></div>
-                    <span class="speaker-tag">P. Alim</span>
+                    <div style="font-size: 50px; color: var(--accent-color);"><i class="fa-solid fa-cloud"></i></div>
                     <h3>Buhar Gücü</h3>
                     <p>Buharlı ütüler, kumaşın dokusuna zarar vermeden en zor kırışıklıkları saniyeler içinde açar.</p>
                 </div>
                 <div class="tile">
-                    <div class="icon"><i class="fa-solid fa-shield-halved"></i></div>
+                    <div style="font-size: 50px; color: var(--accent-color);"><i class="fa-solid fa-shield-halved"></i></div>
                     <h3>Güvenlik</h3>
                     <p>Otomatik kapanma ve kireç önleme sistemleri ile modern ütüler çok daha güvenlidir.</p>
                 </div>
                 <div class="tile">
-                    <div style="height: 150px; overflow: hidden; border-radius: 8px;">
-                        <img src="http://googleusercontent.com/image_collection/image_retrieval/2912794610485459633" style="width: 100%; height: 100%; object-fit: cover;" alt="Modern blue steam iron">
-                    </div>
-                    <h3 style="margin-top: 10px;">Hız ve Konfor</h3>
+                    <div style="font-size: 50px; color: var(--accent-color);"><i class="fa-solid fa-bolt"></i></div>
+                    <h3>Hız</h3>
                     <p>Hafif tasarımlar sayesinde ütü yapmak artık yorucu bir iş olmaktan çıktı.</p>
                 </div>
             </div>
@@ -351,13 +203,8 @@
 
     <div class="slide-container" id="slide6">
         <div class="title-layout">
-            <span class="speaker-tag">S. Abılay</span>
-            <h2 style="font-size: 60px;">Sonuç</h2>
-            <div style="max-width: 900px; text-align: center; margin-top: 30px;">
-                <p>Ütü teknolojisi, binlerce yıl içinde dev bir yol kat etti. Eskiden zorlu ve tehlikeli olan bu iş, bugün akıllı cihazlarla çok kolay bir hale geldi.</p>
-                <hr style="margin: 40px auto; width: 100px; border: 1px solid var(--accent-color);">
-                <p style="font-size: 32px; color: var(--accent-color); font-weight: 600;">Bizi dinlediğiniz için teşekkür ederiz!</p>
-            </div>
+            <h2 style="font-size: 60px;">Teşekkür Ederiz!</h2>
+            <p style="font-size: 32px; color: var(--accent-color); margin-top: 20px;">Sorularınız var mı?</p>
         </div>
         <div class="slide-footer">Ütünün Evrimi — Son</div>
     </div>
